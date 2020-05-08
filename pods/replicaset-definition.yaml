@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata: 
+  name: nginx-replica
+  labels:
+    app: nginx-replica
+spec:
+  template: # this is our pod definition with which k8s will create pods
+    metadata:
+      name: nginx-replica
+      labels:
+        app: nginx-pod
+    spec:
+      containers:
+        - name: nginx-replica
+          image: nginx
+  replicas: 3
+  selector: # this is a required filed in ReplicaSet as it matches the label with pods and replicates them 
+    # this selector should match the label in pod definition and not its own definition
+    matchLabels:
+      app: nginx-pod
