@@ -1,10 +1,10 @@
-apiVersion: v1
-kind: Pod
-metadata:
-  name: myapp-pod
-  labels:
-      app: myapp
-spec:
-  containers:
+apiVersion: v1 # this is kubernetes version which we will be using
+kind: Pod # this is type of kubernetes object. both apiVersion and kind are strings
+metadata: # this is dictionary and requires key value pairs as properties
+  name: myapp-pod # this is a string value
+  labels: # this is again a dictionary
+      app: myapp # this can be any key-value pair. so that we can filter based on label
+spec: # this is specification section and is a dictionary. this provides additional info to kubrenetes based on object
+  containers: # this is a list/array and can have multiple properties
     - name: nginx-container
       image: nginx
