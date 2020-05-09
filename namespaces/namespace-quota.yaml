@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ResourceQuota # This defines that we will be having some limitations over resources of that perticular namespace
+metadata:
+  name: dev-quota
+  namespace: dev
+spec:
+  hard: # makes sure that the usage doesn't go beyond mentioned limits
+    pods: "10" 
+    requests.cpu: "1"
+    requests.memory: "1Gi"
+    limits.cpu: "1G"
+    limits.memory: "1Gi"
